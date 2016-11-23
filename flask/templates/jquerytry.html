@@ -1,0 +1,85 @@
+{% extends 'ckxbase.html' %}
+<html lang="en">
+{% block head %}
+{{ super() }}
+
+
+    <!-- Basic Page Needs
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta charset="utf-8">
+    <title>mytestpage</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Mobile Specific Metas
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- FONT
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <!--   <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css"> -->
+
+    <!-- CSS
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link rel="stylesheet" href="static/css/normalize.css">
+    <link rel="stylesheet" href="static/css/skeleton.css">
+
+    <!-- Favicon
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link rel="icon" type="image/png" href="static/images/favicon.png">
+    <script src="static/js/jquery-3.0.0.js"></script>
+{% endblock %}
+
+
+
+{% block content %}
+
+    <div class="row">
+
+    <div class="four columns">
+        <form action="/ckxlogin" method="post">
+            <div class="row">
+                <div>account:</div>
+                <input type="email" placeholder="test@mail.com" id="exampleEmailInput" name="account" size="20">
+            </div>
+            <div class="row">
+                <div>password:</div>
+                <input type="password" placeholder="your password" name="pw">
+            </div>
+            <div class="row">
+                <button  type="submit" class="button-primary">Submit &nbsp</button>
+            </div>
+
+        </form>
+
+    </div>
+        <div class="eight columns">
+            <div class="row">
+                <!--注意分成八栏目以后又分了12小份-->
+                <div class="twelve columns"><img src="../static/pic/sanji2.jpg" id="sanjimax" class="u-max-full-width"></div>
+
+
+                <script>
+                    $(function () {
+                        var i=0;
+                        $('#sanjimax').click(function () {
+                            if(i==0){this.src="static/pic/sanji1.jpg";i=1}
+                            else{this.src="static/pic/sanji2.jpg";i=0}
+                        })
+                        $('#sanjimax').dblclick(function () {
+                            this.src="static/pic/sanji3.jpg"
+                        })
+                    })
+                </script>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
+
+
+
+{% block footer %}
+    {{super()}}
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends "ckxbase.html" %}
+{% block title %}Index{% endblock %}
+{% block head %}
+    {{ super() }}
+{% endblock %}
+{% block content %}
+
+{#   <h2>{{ content3 }}</h2>#}
+{# <br>#}
+{#    <textarea>#}
+{#    {{ content2 }}#}
+{#    </textarea>#}
+
+
+    <form class="form-signin" role="form" method="POST" action="/craup">
+        <h2 class="form-signin-heading">爬虫参数输入</h2>
+
+        <br>
+        <textarea style="resize:none;  height:200px;" class="form-control" placeholder="内容" name="para" required>
+            {{ content2 }}
+
+        </textarea>
+        <div class="checkbox">
+
+        </div>
+        <input type="hidden" name="myid" value={{ myid }} >
+        <button class="btn btn-warning" type="submit" >提交并等待审核</button>
+
+      </form>
+
+
+
+
+{% endblock %}
+{% block mysidebar %}
+    {{ super() }}
+{% endblock %}

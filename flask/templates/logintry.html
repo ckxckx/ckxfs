@@ -1,0 +1,55 @@
+{% extends 'ckxbase.html' %}
+<html lang="en">
+{% block head %}
+{{ super() }}
+
+
+    <!-- Basic Page Needs
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta charset="utf-8">
+    <title>mytestpage</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Mobile Specific Metas
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- FONT
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <!--   <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css"> -->
+
+    <!-- CSS
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link rel="stylesheet" href="static/css/normalize.css">
+    <link rel="stylesheet" href="static/css/skeleton.css">
+
+    <!-- Favicon
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link rel="icon" type="image/png" href="static/images/favicon.png">
+    <script src="static/js/jquery-3.0.0.js"></script>
+{% endblock %}
+
+
+
+{% block content %}
+<form method="post" action="/mockservice"  method = "post">
+      ... 
+
+    <div class="form-group">
+        <label>data <font style="color:#a94442" size="2">
+        <input class="form-control" id="data" name="data">
+    </div>
+    <div class="form-group">
+        <button  type="submit" class="btn btn-default">Submit &nbsp</button>
+    </div>
+</form>
+
+
+{% endblock %}
+
+
+
+{% block footer %}
+    {{super()}}
+{% endblock %}

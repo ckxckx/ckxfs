@@ -1,0 +1,21 @@
+{% extends "ckxbase.html" %}
+{% block title %}Index{% endblock %}
+{% block head %}
+    {{ super() }}
+{% endblock %}
+{% block content %}
+
+<form class="form-signin" role="form" method="post" action="/ckxregister">
+        <h2 class="form-signin-heading">Please sign up</h2>
+        <input type="email" class="form-control" name="account" placeholder="Email address" required autofocus>
+    <br>
+        <input type="password" class="form-control" name="passwd" placeholder="Password" required>
+        <div class="checkbox">
+
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
+      </form>
+{% endblock %}
+{% block mysidebar %}
+    {{ super() }}
+{% endblock %}

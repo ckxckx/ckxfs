@@ -1,0 +1,38 @@
+{% extends "ckxbase.html" %}
+{% block title %}Index{% endblock %}
+{% block head %}
+    {{ super() }}
+{% endblock %}
+{% block content %}
+
+{#   <h2>{{ content3 }}</h2>#}
+{# <br>#}
+{#    <textarea>#}
+{#    {{ content2 }}#}
+{#    </textarea>#}
+
+
+    <form class="form-signin" role="form" method="POST" action="writedrops">
+        <h2 class="form-signin-heading">原创笔记</h2>
+        <input type="text" class="form-control" value="{{ content3 }}"  name="title" required autofocus>
+
+        <br>
+        <textarea style="resize:none;  height:800px;" class="form-control" placeholder="内容" name="content" required>
+            {{ content2 }}
+
+        </textarea>
+        <div class="checkbox">
+
+        </div>
+        <input type="hidden" name="myid" value={{ myid }} >
+        <button class="btn btn-warning" type="submit" >修改</button>
+     <a href="/deleteone/{{ myid }}" class="btn btn-danger">删除</a>
+      </form>
+
+
+
+
+{% endblock %}
+{% block mysidebar %}
+    {{ super() }}
+{% endblock %}

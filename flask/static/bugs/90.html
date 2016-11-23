@@ -1,0 +1,1124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--
+                              _.._        ,------------.
+                           ,'      `.    ( We want you! )
+                          /  __) __` \    `-,----------'
+                         (  (`-`(-')  ) _.-'
+                         /)  \  = /  (
+                        /'    |--' .  \
+                       (  ,---|  `-.)__`
+                        )(  `-.,--'   _`-.
+                       '/,'          (  Uu",
+                        (_       ,    `/,-' )
+                        `.__,  : `-'/  /`--'
+                          |     `--'  |
+                          `   `-._   /
+                           \        (
+                           /\ .      \.  freebuf
+                          / |` \     ,-\
+                         /  \| .)   /   \
+                        ( ,'|\    ,'     :
+                        | \,`.`--"/      }
+                        `,'    \  |,'    /
+                       / "-._   `-/      |
+                       "-.   "-.,'|     ;
+                      /        _/["---'""]
+                     :        /  |"-     '
+                     '           |      /
+                                 `      |
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  谷歌又双叒叕曝光Windows的0day漏洞，微软很不开心 - FreeBuf.COM | 关注黑客与极客</title>
+<meta name="description" content="谷歌近日再次曝光Windows 0day漏洞，称该漏洞可影响所有现行的Windows操作系统，而微软还没来得及修复。
+
+
+
+根据谷歌团队发布的博文，该漏洞是一个本地提权漏洞，可以让攻击者逃过沙盒过滤，获得管理员权限，并执行…" />
+<meta name="keywords" content="0Day漏洞, windows" />
+<meta name="baidu-site-verification" content="nKKKqQxp6R" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="renderer" content="webkit">
+<meta property="qc:admins" content="6620477777662552566375" />
+<link rel='stylesheet' id='wpfp-css' href='http://www.freebuf.com/buf/plugins/wp-favorite-posts/wpfp.css' type='text/css' />
+<link rel='stylesheet' id='wp-recentcomments-css'  href='http://static.3001.net/css/recentcomments/wp-recentcomments.css?ver=2.2.3' type='text/css' media='screen' />
+<link rel='stylesheet' id='mycred-widget-css'  href='http://www.freebuf.com/buf/plugins/gold/assets/css/widget.css?ver=1.3.2.1' type='text/css' media='all' />
+<script type='text/javascript' src='http://static.3001.net/js/header/jquery.min.js?ver=3.6.1'></script>
+<script type='text/javascript' src='http://www.freebuf.com/buf/plugins/wp-favorite-posts/wpfp.js?ver=3.6.1'></script>
+<link rel='prev' title='腾讯云安全团队诚招志士' href='http://www.freebuf.com/jobs/118338.html' />
+<link rel='next' title='恶意软件作者演示愚蠢的加密错误，安全专家或可轻易破解' href='http://www.freebuf.com/articles/system/117559.html' />
+<link rel='canonical' href='http://www.freebuf.com/news/118699.html' />
+<link rel='shortlink' href='http://www.freebuf.com/?p=118699' />
+
+<link rel="stylesheet" href="http://static.3001.net/css/highslide/highslide.css" type="text/css" />
+<script type="text/javascript" src="http://static.3001.net/js/highslide/highslide-with-html.packed.js"></script>
+<script type="text/javascript">
+jQuery(document).ready(function($) {
+    hs.graphicsDir = "http://www.freebuf.com/buf/plugins/auto-highslide/images/graphics/";
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.addSlideshow({
+        interval: 5000,
+        repeat: true,
+        useControls: true,
+        fixedControls: "fit",
+        overlayOptions: {
+            opacity: 0.75,
+            position: "bottom center",
+            hideOnMouseOut: true
+
+        }
+
+    });
+});
+</script>
+          <script language="JavaScript" type="text/javascript" src="http://www.freebuf.com/buf/plugins/cartpauj-pm/js/script.js"></script>
+      <link rel="stylesheet" type="text/css" href="http://www.freebuf.com/buf/plugins/cartpauj-pm/style/style.css" />
+      <script type="text/javascript" src="http://www.freebuf.com/buf/plugins/simditor/highlight/highlight.pack.js"></script><link type="text/css" rel="stylesheet" href=" http://www.freebuf.com/buf/plugins/simditor/highlight/styles/default.css" />	<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
+<link rel="shortcut icon" href="http://static.freebuf.com/images/favicon.ico" />
+<link href="http://static.3001.net/css/new/bootstrap.min.css?ver=2016051701" rel="stylesheet" media="screen">
+<link href="http://static.3001.net/css/new/style.css?ver=2016071401" rel="stylesheet" type="text/css">
+<style type="text/css">
+#contenttxt hr {
+  display: block;
+  height: 0px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 15px 0;
+  padding: 0;
+}
+#contenttxt table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin: 15px 0;
+}
+#contenttxt table thead {
+  background-color: #f9f9f9;
+}
+#contenttxt table td, #contenttxt table th {
+  min-width: 40px;
+  height: 30px;
+  border: 1px solid #ccc;
+  vertical-align: top;
+  padding: 2px 4px;
+  text-align: left;
+  box-sizing: border-box;
+  white-space: pre-wrap; white-space: -moz-pre-wrap; white-space: -pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word;
+}
+#contenttxt table td.active, #contenttxt table th.active {
+  background-color: #ffffee;
+  white-space: pre-wrap; white-space: -moz-pre-wrap; white-space: -pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word;
+}
+</style>
+<script src="http://www.freebuf.com/buf/themes/freebuf/js/jquery-2.0.3.min.js"></script>
+<script src="http://www.freebuf.com/buf/themes/freebuf/js/bootstrap.min.js"></script>
+<script src="http://www.freebuf.com/buf/themes/freebuf/js/slider.js?2016022501.1" type="text/javascript"></script>
+<script src="http://www.freebuf.com/buf/themes/freebuf/js/jquery.sticky.js" type="text/javascript"></script>
+<script src="http://static.3001.net/js/focus/bjqs-1.3.min.js" type="text/javascript" ></script>
+<script src="http://www.freebuf.com/buf/themes/freebuf/js/mosaic.1.0.1.min.js" type="text/javascript" ></script>
+<!--[if lt IE 9]>
+    <script src="http://www.freebuf.com/buf/themes/freebuf/js/html5shiv.min.js"></script>
+    <script src="http://www.freebuf.com/buf/themes/freebuf/js/respond.min.js"></script>
+<![endif]-->
+</head>
+
+<body>
+<!----------header---------->
+<div class="main-header">
+  <nav class="navbar navbar-inverse" role="navigation">
+
+    <div class="container">
+      <div class="navbar-header">
+        <button class="navbar-toggle collapsed" aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" type="button"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+        <div class="logo"><a href="http://www.freebuf.com"><img src="http://image.3001.net/images/new/logo.png"/></a><span class="visible-lg-block">关注黑客与极客</span></div>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse globalnav" aria-expanded="false" >
+        <ul class="nav nav-pills pull-left">
+          <li ><a href="http://www.freebuf.com">首页</a></li>
+          <li class="dropdown"> <a href="javascript:viod(0);" class="dropdown-toggle" data-toggle="dropdown">分类阅读<b class="caret"></b> </a>
+            <ul class="dropdown-menu article-nav">
+              <li> <strong>黑客</strong>
+                <div class="nav"> <a href="http://www.freebuf.com/vuls" target="_blank">漏洞</a> <a href="http://www.freebuf.com/sectool" target="_blank">安全工具</a> <a href="http://www.freebuf.com/articles/web" target="_blank">WEB安全</a> <a href="http://www.freebuf.com/articles/system" target="_blank">系统安全</a> <a href="http://www.freebuf.com/articles/network" target="_blank">网络安全</a> <a href="http://www.freebuf.com/articles/wireless" target="_blank">无线安全</a> <a href="http://www.freebuf.com/articles/terminal" target="_blank">设备/客户端安全</a> <a href="http://www.freebuf.com/articles/database" target="_blank">数据库安全</a> <a href="http://www.freebuf.com/articles/security-management" target="_blank">安全管理</a></div>
+              </li>
+              <li> <strong>极客</strong>
+                <div class="nav"> <a href="http://www.freebuf.com/geek" target="_blank">极客有意思</a> <a href="http://www.freebuf.com/news/others" target="_blank">周边</a></div>
+              </li>
+              <li> <strong>特色</strong>
+                <div class="nav"><a href="http://www.freebuf.com/news/special" target="_blank">头条</a><a href="http://www.freebuf.com/articles/people" target="_blank">人物志</a><a href="http://www.freebuf.com/fevents" target="_blank">活动</a><a href="http://www.freebuf.com/video" target="_blank">视频</a><a href="http://www.freebuf.com/articles/neopoints" target="_blank">观点</a><a href="http://www.freebuf.com/jobs" target="_blank">招聘</a><a href="http://www.freebuf.com/paper/" target="_blank">报告</a></div>
+              </li>
+            </ul>
+          </li>
+          <li > <a href="http://www.freebuf.com/wenku" target="_blank">文库<b class="icon-betr"></b> </a></li>
+          <li><a href="http://fit.freebuf.com/" target="_blank">FIT大会</a><span class="icon-hot"></span></li>
+          <li><a href="http://bar.freebuf.com/" target="_blank">小酒馆</a><span ></span></li>
+          <li><a href="http://open.freebuf.com" target="_blank">公开课</a></li>
+          <li><a href="http://shop.freebuf.com" target="_blank">商城</a></li>
+          <li><a href="https://www.vulbox.com" target="_blank">漏洞盒子</a></li>
+        </ul>
+                <div class="main-login">
+          <ul class="nav nav-pills pull-right login">
+            <li class="pull-right"><a href="https://account.tophant.com/register.html">注册</a></li>
+            <li class="active pull-right"><a href="http://www.freebuf.com/oauth">登录</a></li>
+          </ul>
+        </div>
+              </div>
+    </div>
+  </nav>
+</div>
+<script type="text/javascript">
+function ntabs(thisObj,Num){
+    if(thisObj.className == "active")return;
+    var tabObj = thisObj.parentNode.id;
+    var tabList = document.getElementById(tabObj).getElementsByTagName("li");
+    for(i=0; i <tabList.length; i++)
+    {
+        if (i == Num){
+            thisObj.className = "active"; 
+            document.getElementById(tabObj+"_content"+i).style.display = "block";
+        }else{
+            tabList[i].className = "normal"; 
+            document.getElementById(tabObj+"_content"+i).style.display = "none";
+        }
+    } 
+}
+</script> 
+<!----------header end----------><script>
+    jQuery(window).load(function(){
+      if(jQuery(window).width()>480){
+        jQuery(".main-header").sticky({ topSpacing: 0 });
+      }else{
+        jQuery(".main-header nav").removeClass("navbar-fixed-top");
+      }
+      jQuery("#mar-right").sticky({ topSpacing: 105,bottomSpacing: 410 });
+    });
+</script>
+<script type="text/javascript" src="http://static.3001.net/js/pretty/prettify.js"></script>
+<script type="text/javascript" src="http://static.3001.net/js/header/lazyload.js"></script>
+<script type="text/javascript" charset="utf-8">
+      jQuery(function() {
+          jQuery("img").lazyload({
+              effect : "fadeIn"
+          });
+      });
+ </script>
+<script type="text/javascript">
+    window.onload = function(){
+        prettyPrint();
+    }
+</script>
+<script language="JavaScript" type="text/javascript">
+//<![CDATA[
+var va = "您已经点亮过了";
+function acv_vote(id,option, m){
+  if( m==null) m =''; m = m + '';
+  jQuery('#acv_stat_'+m+id).html('Loading...');
+  var url="http://www.freebuf.com/index.php?acv_ajax=true&option="+option+"&ID="+id;
+  jQuery.get(url,function(d){
+    d =d.split('|');var s='#acv_stat_'+m+d[0];
+    var sele = '#cos_support-'+m+id,unsele = '#cos_unsupport-'+m+id,tpjs = 'javascript:alert(va)';
+    jQuery( s ).html( d[1] );jQuery(s).fadeOut(400,function(){jQuery(s).fadeIn();});
+    if( d[2] == 1 ){ jQuery(sele).html(jQuery(sele).html()*1+1); }
+    if( d[2] == -1 ){ jQuery(unsele).html(jQuery(unsele).html()*1+1); }
+    jQuery('#vote4-'+id).attr('href',tpjs);jQuery('#vote4-2'+id).attr('href',tpjs);
+    jQuery('#votea-'+id).attr('href',tpjs);jQuery('#votea-2'+id).attr('href',tpjs);
+  });
+}
+  
+$(document).on("mouseenter",".comment-tools",function(){
+  $(this).find(".btn-report").show();
+  $(this).find(".btn-report").addClass("hover");
+}).on("mouseleave",".comment-tools",function(){
+  var $_this = $(this);
+  $(this).find(".btn-report").removeClass("hover");
+  if(!$(this).find(".dropup").hasClass('open')){
+    $(this).find(".btn-report").hide(); 
+    $_this.find(".dropdown-menu").css("display","none");
+  }else{
+    setTimeout(function(){
+      if(!$_this.find(".btn-report").hasClass("hover")){
+        $_this.find(".dropup").removeClass("open");
+        $_this.find(".dropdown-menu").css("display","none");
+        $_this.find(".btn-report").hide(); 
+      }
+    },"500");
+  }
+})
+
+$(document).on("click",".click_report",function(){
+  $(this).parent().parent().css("display","none");
+  var id = $(this).attr("data-id");
+  var url="http://www.freebuf.com/index.php?acv_ajax=true&option=0&ID="+id;
+  $_this = $(this);
+  jQuery.get(url,function(d){
+    d =d.split('|');
+    if(d[1]=='您已经点过灯了'){
+      d[1] = '您已经举报过了';
+    }
+    if(d[1]=='Thank you'){
+      d[1] = '举报成功';
+    }
+    $_this.parent().parent().parent().find(".btn-report").text(d[1]);
+    $_this.parent().parent().parent().find(".btn-report").css("display","block");
+  })
+})
+
+$(document).on("click",".btn-report",function(){
+  if($(this).parent().hasClass('open')){
+    $(this).parent().find(".dropdown-menu").css("display","block");
+  }else{
+    $(this).parent().find(".dropdown-menu").css("display","none");
+  }
+})
+//]]>
+</script>
+<div class="container pad-top35">
+  <div class="row clearfix">
+        <div class="col-md-9" id="getWidth">
+      <div class="article-wrap panel panel-default">
+                    <div class="articlecontent">
+        <div class="title">
+          <h2> 谷歌又双叒叕曝光Windows的0day漏洞，微软很不开心 </h2>
+          <div class="property">
+		  		  <span class="name"><a href="http://www.freebuf.com/author/kuma" title="由 kuma 发布" rel="author">kuma</a></span>
+		  		  <span class="icon-f"></span>
+		  <span class="time">2016-11-04</span>
+             
+		  <span class="look">共<strong>60591</strong>人围观
+              ，发现 <strong>9</strong> 个不明物体 </span>          </span>
+		  <span class="tags">		  
+		  <a href="http://www.freebuf.com/./vuls">漏洞</a><a href="http://www.freebuf.com/./news">资讯</a></span>	
+        <span class="tags_01"></span>			  
+		  </div>
+        </div>
+                        <div id="contenttxt">
+           <blockquote><p>谷歌近日再次曝光Windows 0day漏洞，称该漏洞可影响所有现行的Windows操作系统，而微软还没来得及修复。</p>
+</blockquote>
+<p style="text-align: center;"><img alt="Google-Reveals-Security-Flaw-in-Windows-7-8-1-Patch-to-Be-Shipped-in-February-470191-2.jpg" data-original="http://image.3001.net/images/20161102/14780695952145.jpg!small" src="http://www.freebuf.com/buf/themes/freebuf/images/grey.gif" width="690" height="393"></p>
+<noscript><img alt="Google-Reveals-Security-Flaw-in-Windows-7-8-1-Patch-to-Be-Shipped-in-February-470191-2.jpg" src="http://image.3001.net/images/20161102/14780695952145.jpg!small" width="690" height="393"></p></noscript>
+<p><b style="color: rgb(0, 176, 80);">根据谷歌团队发布的博文，该漏洞是一个本地提权漏洞，可以让攻击者逃过沙盒过滤，获得管理员权限，并执行恶意代码。</b></p>
+<blockquote><p>It can be triggered via the win32k.sys system call NtSetWindowLongPtr() for the index GWLP_ID on a window handle with GWL_STYLE set to WS_CHILD.</p>
+</blockquote>
+<p><span style="font-size: 16px;">其实，10天前谷歌就已经将此漏洞上报给微软。</span>既然已经提交微软团队，谷歌为何在短短数日之后又将之公开？</p>
+<h2>漏洞已被利用</h2>
+<p>“上周五，也就是10月21日，我们报告了（此前未公开的）两个0day漏洞分别给Adobe和微软。Adobe在10月26日更新了Flash，修补了CVE-2016-7855漏洞；此次更新可通过Adobe更新程序和Chrome自动更新实现。”</p>
+<p>7天之后，谷歌团队发现Windows系统中依然存在谷歌上报的高危漏洞，并且微软没有发布任何安全公告或者补丁。同时，谷歌团队发现此漏洞正被积极利用，俄罗斯APT黑客组织Strontium，也就是Fancy Bear，正利用此漏洞部署“小规模”攻击，此组织也是美国民主党全国委员会（DNC）被黑事件的重点怀疑对象，这一信息也得到了微软的确认。</p>
+<p>因此，谷歌认为此漏洞特别严重。于是谷歌团队将此漏洞公开，该举动符合谷歌在2013年制定的<a href="https://security.googleblog.com/2013/05/disclosure-timeline-for-vulnerabilities.html " target="_blank">产品漏洞披露信息相关政策</a>：</p>
+<blockquote><p>我们建议，厂商在60天内修复高危漏洞，如果无法修复，厂商也应知会公众风险相关信息，并提供变通方案。如果厂商需要更多时间修复漏洞，我们鼓励研究人员发布自己的相关发现。但是，根据我们的经验，我们认为对于高危的、正被积极利用的漏洞，厂商应在7天内采取更加紧急的措施。</p>
+<p>7天的时限比较紧迫，对于某些厂商而言，如果要更新产品，7天可能有些短。但是，厂商发布可能的缓解措施，比如临时关闭某项服务、限制访问或者联系厂商获取更多信息，7天是足够的。因此，如果7天之后，厂商未提供补丁或建议，我们将支持研究者公开细节，以便用户采取防范措施。</p>
+</blockquote>
+<p>谷歌团队认为公开漏洞有两大好处：1.可让用户至少知晓问题的存在；2.可以敦促开发者发布补丁。</p>
+<h2>谷歌不是第一次这么干了</h2>
+<p>谷歌工程师特别擅长寻找微软软件里的漏洞：在2010年6月，谷歌工程师发现了一个Windows高危漏洞，只给了微软5天响应时间，5天后，工程师将漏洞细节发布在网上（其中包括一个示例攻击代码）；去年1月，谷歌Project Zero在给微软提交漏洞信息后，给了微软90天期限修复，但微软没有在期限内修复，于是谷歌就曝光了漏洞细节。具体事件FreeBuf也曾报道过，详情<a href="http://www.freebuf.com/news/56474.html" target="_blank">请戳这里</a>。</p>
+<p>当时，微软的高级总监Chris Betz就曾喊话谷歌：“我们请谷歌与我们合作，等到1月13日我们发布补丁时，再公布漏洞细节，以保护客户。”他认为谷歌顽固执行其90天期限，不像是坚守原则，更像是套路，最后受伤的都是客户。“谷歌认为正确的，对客户来说不一定就是对的。我们敦促谷歌，将保护客户作为我们的首要共同目标。”</p>
+<p>此话一出，谷歌方面重新考量自己的Project Zero，修改了披露规则，在原有90天的基础上又宽限了14天（详细情况<a href="http://www.freebuf.com/news/59162.html" target="_blank">请点这里</a>）。</p>
+<h2>微软：不开心</h2>
+<p style="text-align: center;"><img alt="google_v_ms.jpg" data-original="http://image.3001.net/images/20161102/14780696843719.jpg!small" src="http://www.freebuf.com/buf/themes/freebuf/images/grey.gif" width="648" height="348"></p>
+<noscript><img alt="google_v_ms.jpg" src="http://image.3001.net/images/20161102/14780696843719.jpg!small" width="648" height="348"></p></noscript>
+<p>对于谷歌此次的曝光，微软肯定是不开心了，他们指责谷歌欺骗网民，混淆事实。微软首先在一篇声明当中回应：</p>
+<blockquote><p>“我们认为公开漏洞时应互相配合，谷歌此番公开漏洞，将客户置于风险之中。”</p>
+</blockquote>
+<p>微软官方随后针对攻击事件在11月1日发布了安全公告：</p>
+<blockquote><p>“近日，微软威胁情报称为Strontium的活动组织，发动了一次小流量鱼叉式钓鱼攻击。我们已经得知，使用Windows 10 周年更新版上的Microsoft Edge的用户不会受到此次攻击的影响。此次攻击，最初由谷歌威胁分析小组发现，利用的是Adobe Flash的两个0day漏洞和Windows的底层内核，针对特定的客户群体。”</p>
+</blockquote>
+<p style="text-align: center;"><img alt="atp-strontium.png" data-original="http://image.3001.net/images/20161103/1478144477346.png!small" src="http://www.freebuf.com/buf/themes/freebuf/images/grey.gif" width="690" height="354"></p>
+<noscript><img alt="atp-strontium.png" src="http://image.3001.net/images/20161103/1478144477346.png!small" width="690" height="354"></p></noscript>
+<p>微软发言人也表示并不是所有Windows版本都受到了影响：</p>
+<blockquote><p>“谷歌将这个本地提权漏洞描述为‘高危’、‘特别严重’，我们并不同意。因为他们描述的攻击场景，在上周Adobe Flash更新部署后就已经全面缓解了。另外，我们的分析认为，这种攻击针对Windows 10周年更新是无效的，因为先前我们就已经对系统进行了安全方面的加强。”</p>
+</blockquote>
+<p>Windows执行副总Terry Myerson则表示谷歌的行为“令人失望”。Myerson认为，Strontium黑客组织利用谷歌报告的漏洞发动的鱼叉式钓鱼攻击是很有限的，因此大部分Windows用户都没有成为攻击目标，谷歌不必如此着急将漏洞公开。</p>
+<p>Myerson表示，微软将在下周二，也就是Patch Tuesday发布时，修复此漏洞。Myerson还建议用户在等待补丁的同时，先将系统升级为Windows 10，以免受到进一步攻击。</p>
+<p><b style="color: rgb(159, 163, 168);">参考来源：<a href="http://thehackernews.com/2016/10/google-windows-zero-day.html" target="_blank">thehackernews</a>、<a href="http://securityaffairs.co/wordpress/52955/hacking/windows-zero-day-kernel.html" target="_blank">securityaffairs</a>、<a href="http://www.theregister.co.uk/2016/11/01/microsoft_google_bug_disclosure_spat/" target="_blank">theregister</a>，FB小编kuma编译，转载请注明来自<a href="http://www.freebuf.com/" target="_blank">FreeBuf.COM</a>。</b></p>
+        </div>
+        <div class="article-oper article-oper-new">
+			<style>
+				@font-face {font-family: 'iconfont';
+					src: url('http://static.3001.net/iconfonts/iconfont.eot'); /* IE9*/
+					src: url('http://static.3001.net/iconfonts/iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+					url('http://static.3001.net/iconfonts/iconfont.woff') format('woff'), /* chrome、firefox */
+					url('http://static.3001.net/iconfonts/iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+					url('http://static.3001.net/iconfonts/iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
+				}
+			</style>
+			<div class="share-new">
+				<div class="share-author">
+											<a href="http://www.freebuf.com/author/kuma" title="由 kuma 发布" rel="author">
+							<img src="http://image.3001.net/2016/09/92ed13fab8dcc3da1e87a4beaa0d87d1.jpeg" width="50" height="40" alt="kuma" class="avatar avatar-50 wp-user-avatar wp-user-avatar-50 photo" />							<!--							<img src="http://image.3001.net/2015/06/17.jpg" alt="ArthurKiller">-->
+						</a>
+						<div class="share-author-info">
+														<a class="author-name" href="http://www.freebuf.com/author/kuma">kuma</a>
+							<!--<span class="icon-f"></span>-->
+							<span><i class="colour-red">9</i>篇文章</span><span>等级：<i class="colour-green">4</i>级</span>
+						</div>
+									</div>
+				<div class="user-center clearfix">
+					<a href="http://www.freebuf.com/author/kuma" title="个人主页" target="_blank">&#xe61b;</a>
+					<a href="http://www.freebuf.com/user/pm?pmaction=newmessage&to=kuma" title="私信" target="_blank">&#xe611;</a>
+<!--					<a href="http://www.freebuf.com/author/ArthurKiller" title="个人主页">&#xe61b;</a>-->
+<!--					<a href="http://www.freebuf.com/user/pm?pmaction=newmessage&to=ArthurKiller" title="私信">&#xe611;</a>-->
+				</div>
+				<div class="share-ctrl clearfix">
+					<div class="bdsharebuttonbox clearfix">
+						<a href="#" data-cmd="tsina" title="分享到新浪微博">&#xe618;</a>
+						<a href="#" data-cmd="weixin" title="分享到微信" id="weixin">&#xe60a;</a>
+						<a href="#" data-cmd="qzone" title="分享到QQ空间">&#xe640;</a>
+						<a href="#">|</a>
+					</div>
+				</div>
+				<div class="user-ctrl clearfix">
+										<a href="http://www.freebuf.com/oauth" title="收藏" class="like-grey">&#xe798;</a>
+					<!--					<a href="#" title="收藏" class="like-grey">&#xe798;</a>-->
+<!--					<a href="#" title="收藏" class="like-red"><img src="http://image.3001.net/images/new/user-like.png" /></a>-->
+					<a href="#respond" title="评论">&#xe615;</a>
+					<!--					<a href="#" title="文章纠正">&#xe6e3;</a>-->
+					<a href="#">|</a>
+					<span class="info-alert"></span>
+				</div>
+			</div>
+			<script>
+				window._bd_share_config={
+					"common": {
+						"bdSnsKey": {},
+						"bdText": "",
+						"bdMini": "2",
+						"bdMiniList": ["qzone", "tsina", "weixin"],
+						"bdPic": "",
+						"bdStyle": "1",
+						"bdSize": "24"
+					},
+					"share":{},
+				};
+				with(document)0[
+					(getElementsByTagName('head')[0]||body).
+					appendChild(createElement('script')).
+						src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)
+					];
+				//控制垂直方向分享模块的定位
+				function shareFixVertical(){
+					var offsetTop = jQuery(".article-oper").get(0).offsetTop;
+					var win_h = jQuery(window).height();
+					var win_w = jQuery(window).width();
+					var scrollTop = document.body.scrollTop||document.documentElement.scrollTop;
+					var _height = offsetTop-scrollTop;
+					if(_height>=win_h-130&&win_w>975){
+						var _width = jQuery("#getWidth").innerWidth()-30;
+						var _left = jQuery("#getWidth").offset().left+15;
+						jQuery(".share-new").addClass("fixed");
+						jQuery(".fixed").css({
+							width:_width,
+							left:_left
+						});
+
+					}else{
+						jQuery(".share-new").removeClass("fixed");
+						jQuery(".share-new").css({
+							width: "100%"
+						});
+					}
+				}
+				//控制水平方向分享模块的定位
+				function shareFixHorizontal(){
+					var _width = jQuery("#getWidth").innerWidth()-30;
+					var _left = jQuery("#getWidth").get(0).offsetLeft+15;
+					var win_w = document.documentElement.clientWidth || document.body.clientWidth;
+					console.log(win_w);
+					jQuery(".fixed").css({
+						width:_width,
+						left:_left
+					});
+					if(win_w< 975){
+						jQuery(".share-new").css({
+							width: "100%",
+							left: "0"
+						});
+					}else{
+						var _width = jQuery("#getWidth").innerWidth()-30;
+						var _left = jQuery("#getWidth").get(0).offsetLeft+15;
+						jQuery(".fixed").css({
+							width:_width,
+							left:_left
+						});
+					}
+				}
+
+				jQuery(window).on("load",function(){
+					shareFixVertical();
+				});
+
+				jQuery(window).on("scroll",function(){
+					shareFixVertical();
+				});
+
+				jQuery(window).on("resize",function(){
+					shareFixHorizontal();
+				})
+				$(document).click(function(e){
+					if($(e.target).attr("id")=="weixin"){
+						$("#bdshare_weixin_qrcode_dialog").show();
+					}else{
+						$("#bdshare_weixin_qrcode_dialog").hide();
+					}
+				})
+			</script>
+        </div>
+                        		        <div class="article-pager">
+          <ul>
+            <li class="previous"><span>上一篇：</span><a href="http://www.freebuf.com/vuls/118789.html" rel="prev">关于Joomla!内容管理系统漏洞情况的通报</a>			</li>
+            <li class="next"><span>下一篇：</span>
+			<a href="http://www.freebuf.com/vuls/117648.html" rel="next">厉害了，word哥！4步轻松绕过PayPal双重验证机制</a>			</li>
+          </ul>
+        </div>
+      </div>
+      </div>
+          <div class="comment-bright"><div class="main-tit04">
+    <h3>这些评论亮了</h3></div>      <ul>      <li>
+            <div class="user_photo">             <img src="http://image.3001.net/images/headimg/pic18.png">             </div>
+            <div class="tit"><span class="name"> 路过 </span> 
+						<span class="explain"></span>
+			<span class="reply"><a onclick="return addComment.moveForm( 'comment-','', 'respond','118699' ) " href="?replytocom=#respond" class="comment-reply-link" rel="nofollow">回复</a></span></div>
+            <div class="txt">
+						好牛牪(yàn)犇(bēn),这条要火炎焱(yàn )燚(yì)了。这真是一方水沝(zhu)淼(miǎo)土圭垚(yáo)养一方人从众啊！</div>
+            <div class="but"><span class="vote-count">)</span><span style="none" id="cos_support-2200589" class="vote-count">17</span><span class="vote-count">(</span><span class="vote">  <a class="ilike_icon" id="vote4-2200589" href="javascript:acv_vote(200589,1,2);">亮了</a></span></div>
+          </li>
+            <li>
+            <div class="user_photo"> <a href="http://www.freebuf.com/author/softbug">
+            <img src="http://image.3001.net/2013/10/Vb_logo.jpeg" width="58" height="58" /></a>
+             </div>
+            <div class="tit"><span class="name"> <a href="http://www.freebuf.com/author/softbug" target="_blank">softbug</a>  </span> 
+						<span class="icon-f">  </span> 
+			<span class="rank">(7级)</span>
+						<span class="explain">四川建设网安全工程师</span>
+			<span class="reply"><a onclick="return addComment.moveForm( 'comment-','', 'respond','118699' ) " href="?replytocom=#respond" class="comment-reply-link" rel="nofollow">回复</a></span></div>
+            <div class="txt">
+						2012年12月17日晚间，日本朝日新闻中文网微博又发布了一条微博，“我们又双叒叕要换首相了。”这句话的关键在“又”字，四个汉字拆开就是10个“又”字，反映日本频繁换首相。</div>
+            <div class="but"><span class="vote-count">)</span><span style="none" id="cos_support-2200580" class="vote-count">7</span><span class="vote-count">(</span><span class="vote">  <a class="ilike_icon" id="vote4-2200580" href="javascript:acv_vote(200580,1,2);">亮了</a></span></div>
+          </li>
+         </ul></div><div class="comment-list">
+      <div class="main-tit02">
+		<a rel="nofollow" class="btnbtn-default btn-comment" href="#respond">发表评论</a>
+        <h3>已有 <span class="color_red">9</span> 条评论
+      </div>
+      <ul>
+         <li class="comment even thread-even depth-1" id="li-comment-200578">
+    <div id="comment-200578">
+        <div class="photo">     <img src="http://image.3001.net/images/headimg/pic17.png">     </div>
+    <div class="tit"> 
+	    <span class="name"> 道隐无名 </span>
+        		<span class="explain">  </span>
+		<span class="time">&nbsp;2016-11-04</span>
+		<span class="time"> </span>
+        <span class="useragent_output_custom"></span>
+        <span class="useragent_output_custom"></span> 
+		<span class="reply">
+		        <!-- 正常情况 -->
+           <a onclick="return addComment.moveForm( 'comment-200578','200578', 'respond','118699' ) " href="?replytocom=200578#respond" class="comment-reply-link" rel="nofollow">回复</a>
+        	    </span>
+		<span class="floor">1楼</span>
+	</div>
+	    <div class="txt">
+	  <p class="useragent_output_custom"></p>
+      <p>谷歌又双叒叕曝光Windows的0day漏洞，微软很不开心  </p>
+<p>”叒叕“ 读什么</p>
+<div class="comment-tools">
+<div class="vote" id="vote-200578"><span id="acv_stat_200578"></span><a class="ilike_icon"  id="vote4-200578" href="javascript:acv_vote(200578,1);">亮了</a>(<span id="cos_support-200578">1</span>)</div>
+<div class="dropup"><a class="dropdown-toggle btn-report" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="display:none;"> 举报</a>
+<ul class="dropdown-menu" style="display:none;bottom:auto;">
+<li><a data-id="200578" class="click_report" href="javascript:;">广告等垃圾信息</a></li>
+<li><a data-id="200578" class="click_report" href="javascript:;">不友善内容</a></li>
+<li><a data-id="200578" class="click_report" href="javascript:;">违反法律法规的内容</a></li>
+<li><a data-id="200578" class="click_report" href="javascript:;">不宜公开讨论的政治内容</a></li>
+<li><a data-id="200578" class="click_report" href="javascript:;">其他</a></li>
+</ul></div>
+</div>
+	</div></div>
+</li><!-- #comment-## -->
+<li class="comment byuser comment-author-softbug odd alt thread-odd thread-alt depth-1" id="li-comment-200580">
+    <div id="comment-200580">
+        <div class="photo"> <a href="http://www.freebuf.com/author/softbug">
+    <img src="http://image.3001.net/2013/10/Vb_logo.jpeg"></a>
+     </div>
+    <div class="tit"> 
+	    <span class="name"> <a href="http://www.freebuf.com/author/softbug" target="_blank">softbug&nbsp;</a>  </span>
+        		
+		<span class="icon-f"> <a href="http://www.freebuf.com/bufer" target="_blank"><img src="http://image.3001.net/images/index/f1.png" title="认证作者"></a></span>
+		<span class="rank">(7级)</span>
+				<span class="explain"> 四川建设网安全工程师 </span>
+		<span class="time">&nbsp;2016-11-04</span>
+		<span class="time"> </span>
+        <span class="useragent_output_custom"></span>
+        <span class="useragent_output_custom"></span> 
+		<span class="reply">
+		        <!-- 正常情况 -->
+           <a onclick="return addComment.moveForm( 'comment-200580','200580', 'respond','118699' ) " href="?replytocom=200580#respond" class="comment-reply-link" rel="nofollow">回复</a>
+        	    </span>
+		<span class="floor">2楼</span>
+	</div>
+	    <div class="txt">
+	  <p class="useragent_output_custom"></p>
+      <p>2012年12月17日晚间，日本朝日新闻中文网微博又发布了一条微博，“我们又双叒叕要换首相了。”这句话的关键在“又”字，四个汉字拆开就是10个“又”字，反映日本频繁换首相。</p>
+<div class="comment-tools">
+<div class="vote" id="vote-200580"><span id="acv_stat_200580"></span><a class="ilike_icon"  id="vote4-200580" href="javascript:acv_vote(200580,1);">亮了</a>(<span id="cos_support-200580">7</span>)</div>
+<div class="dropup"><a class="dropdown-toggle btn-report" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="display:none;"> 举报</a>
+<ul class="dropdown-menu" style="display:none;bottom:auto;">
+<li><a data-id="200580" class="click_report" href="javascript:;">广告等垃圾信息</a></li>
+<li><a data-id="200580" class="click_report" href="javascript:;">不友善内容</a></li>
+<li><a data-id="200580" class="click_report" href="javascript:;">违反法律法规的内容</a></li>
+<li><a data-id="200580" class="click_report" href="javascript:;">不宜公开讨论的政治内容</a></li>
+<li><a data-id="200580" class="click_report" href="javascript:;">其他</a></li>
+</ul></div>
+</div>
+	</div></div>
+</li><!-- #comment-## -->
+<li class="comment byuser comment-author-softbug even thread-even depth-1" id="li-comment-200581">
+    <div id="comment-200581">
+        <div class="photo"> <a href="http://www.freebuf.com/author/softbug">
+    <img src="http://image.3001.net/2013/10/Vb_logo.jpeg"></a>
+     </div>
+    <div class="tit"> 
+	    <span class="name"> <a href="http://www.freebuf.com/author/softbug" target="_blank">softbug&nbsp;</a>  </span>
+        		
+		<span class="icon-f"> <a href="http://www.freebuf.com/bufer" target="_blank"><img src="http://image.3001.net/images/index/f1.png" title="认证作者"></a></span>
+		<span class="rank">(7级)</span>
+				<span class="explain"> 四川建设网安全工程师 </span>
+		<span class="time">&nbsp;2016-11-04</span>
+		<span class="time"> </span>
+        <span class="useragent_output_custom"></span>
+        <span class="useragent_output_custom"></span> 
+		<span class="reply">
+		        <!-- 正常情况 -->
+           <a onclick="return addComment.moveForm( 'comment-200581','200581', 'respond','118699' ) " href="?replytocom=200581#respond" class="comment-reply-link" rel="nofollow">回复</a>
+        	    </span>
+		<span class="floor">3楼</span>
+	</div>
+	    <div class="txt">
+	  <p class="useragent_output_custom"></p>
+      <p>叒ruò，叕zhuó</p>
+<div class="comment-tools">
+<div class="vote" id="vote-200581"><span id="acv_stat_200581"></span><a class="ilike_icon"  id="vote4-200581" href="javascript:acv_vote(200581,1);">亮了</a>(<span id="cos_support-200581">2</span>)</div>
+<div class="dropup"><a class="dropdown-toggle btn-report" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="display:none;"> 举报</a>
+<ul class="dropdown-menu" style="display:none;bottom:auto;">
+<li><a data-id="200581" class="click_report" href="javascript:;">广告等垃圾信息</a></li>
+<li><a data-id="200581" class="click_report" href="javascript:;">不友善内容</a></li>
+<li><a data-id="200581" class="click_report" href="javascript:;">违反法律法规的内容</a></li>
+<li><a data-id="200581" class="click_report" href="javascript:;">不宜公开讨论的政治内容</a></li>
+<li><a data-id="200581" class="click_report" href="javascript:;">其他</a></li>
+</ul></div>
+</div>
+	</div></div>
+<ul class="children">
+<li class="comment byuser comment-author-redbell odd alt depth-2" id="li-comment-200584">
+    <div id="comment-200584">
+        <div class="photo"> <a href="http://www.freebuf.com/author/RedBell">
+    <img src="http://image.3001.net/2016/10/737655ecdf76726e34377c43c7546b0d.png"></a>
+     </div>
+    <div class="tit"> 
+	    <span class="name"> <a href="http://www.freebuf.com/author/RedBell" target="_blank">RedBell&nbsp;</a>  </span>
+        		
+		<span class="icon-f"> </span>
+		<span class="rank">(2级)</span>
+				<span class="explain"> 这家伙不懒，但不想写个人描述！ </span>
+		<span class="time">&nbsp;2016-11-04</span>
+		<span class="time"> </span>
+        <span class="useragent_output_custom"></span>
+        <span class="useragent_output_custom"></span> 
+		<span class="reply">
+		        <!-- 正常情况 -->
+           <a onclick="return addComment.moveForm( 'comment-200584','200584', 'respond','118699' ) " href="?replytocom=200584#respond" class="comment-reply-link" rel="nofollow">回复</a>
+        	    </span>
+		<span class="floor"></span>
+	</div>
+	    <div class="txt">
+	  <p class="useragent_output_custom"></p>
+      <p>@ softbug    不是多音字么 <img src='http://image.3001.net/images/index/smilies/icon_wink.gif' alt=':wink:' class='wp-smiley' /> </p>
+<div class="comment-tools">
+<div class="vote" id="vote-200584"><span id="acv_stat_200584"></span><a class="ilike_icon"  id="vote4-200584" href="javascript:acv_vote(200584,1);">亮了</a>(<span id="cos_support-200584">0</span>)</div>
+<div class="dropup"><a class="dropdown-toggle btn-report" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="display:none;"> 举报</a>
+<ul class="dropdown-menu" style="display:none;bottom:auto;">
+<li><a data-id="200584" class="click_report" href="javascript:;">广告等垃圾信息</a></li>
+<li><a data-id="200584" class="click_report" href="javascript:;">不友善内容</a></li>
+<li><a data-id="200584" class="click_report" href="javascript:;">违反法律法规的内容</a></li>
+<li><a data-id="200584" class="click_report" href="javascript:;">不宜公开讨论的政治内容</a></li>
+<li><a data-id="200584" class="click_report" href="javascript:;">其他</a></li>
+</ul></div>
+</div>
+	</div></div>
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+<li class="comment byuser comment-author-10086 even thread-odd thread-alt depth-1" id="li-comment-200583">
+    <div id="comment-200583">
+        <div class="photo"> <a href="http://www.freebuf.com/author/死宅10086">
+    <img src="http://image.3001.net/2016/04/145254ordw99xzxszuusly.jpg"></a>
+     </div>
+    <div class="tit"> 
+	    <span class="name"> <a href="http://www.freebuf.com/author/死宅10086" target="_blank">死宅10086&nbsp;</a>  </span>
+        		
+		<span class="icon-f"> </span>
+		<span class="rank">(6级)</span>
+				<span class="explain">  </span>
+		<span class="time">&nbsp;2016-11-04</span>
+		<span class="time"> </span>
+        <span class="useragent_output_custom"></span>
+        <span class="useragent_output_custom"></span> 
+		<span class="reply">
+		        <!-- 正常情况 -->
+           <a onclick="return addComment.moveForm( 'comment-200583','200583', 'respond','118699' ) " href="?replytocom=200583#respond" class="comment-reply-link" rel="nofollow">回复</a>
+        	    </span>
+		<span class="floor">4楼</span>
+	</div>
+	    <div class="txt">
+	  <p class="useragent_output_custom"></p>
+      <p> <img src='http://image.3001.net/images/index/smilies/icon_mrgreen.gif' alt=':mrgreen:' class='wp-smiley' />   <img src='http://image.3001.net/images/index/smilies/icon_mrgreen.gif' alt=':mrgreen:' class='wp-smiley' />   <img src='http://image.3001.net/images/index/smilies/icon_mrgreen.gif' alt=':mrgreen:' class='wp-smiley' />   <img src='http://image.3001.net/images/index/smilies/icon_mrgreen.gif' alt=':mrgreen:' class='wp-smiley' /> </p>
+<div class="comment-tools">
+<div class="vote" id="vote-200583"><span id="acv_stat_200583"></span><a class="ilike_icon"  id="vote4-200583" href="javascript:acv_vote(200583,1);">亮了</a>(<span id="cos_support-200583">0</span>)</div>
+<div class="dropup"><a class="dropdown-toggle btn-report" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="display:none;"> 举报</a>
+<ul class="dropdown-menu" style="display:none;bottom:auto;">
+<li><a data-id="200583" class="click_report" href="javascript:;">广告等垃圾信息</a></li>
+<li><a data-id="200583" class="click_report" href="javascript:;">不友善内容</a></li>
+<li><a data-id="200583" class="click_report" href="javascript:;">违反法律法规的内容</a></li>
+<li><a data-id="200583" class="click_report" href="javascript:;">不宜公开讨论的政治内容</a></li>
+<li><a data-id="200583" class="click_report" href="javascript:;">其他</a></li>
+</ul></div>
+</div>
+	</div></div>
+</li><!-- #comment-## -->
+<li class="comment byuser comment-author-30623 odd alt thread-even depth-1" id="li-comment-200588">
+    <div id="comment-200588">
+        <div class="photo"> <a href="http://www.freebuf.com/author/鸢尾">
+    <img src="http://image.3001.net/2014/12/12782436443029.jpg"></a>
+     </div>
+    <div class="tit"> 
+	    <span class="name"> <a href="http://www.freebuf.com/author/鸢尾" target="_blank">鸢尾&nbsp;</a>  </span>
+        		
+		<span class="icon-f"> </span>
+		<span class="rank">(8级)</span>
+				<span class="explain"> 醉人 </span>
+		<span class="time">&nbsp;2016-11-04</span>
+		<span class="time"> </span>
+        <span class="useragent_output_custom"></span>
+        <span class="useragent_output_custom"></span> 
+		<span class="reply">
+		        <!-- 正常情况 -->
+           <a onclick="return addComment.moveForm( 'comment-200588','200588', 'respond','118699' ) " href="?replytocom=200588#respond" class="comment-reply-link" rel="nofollow">回复</a>
+        	    </span>
+		<span class="floor">5楼</span>
+	</div>
+	    <div class="txt">
+	  <p class="useragent_output_custom"></p>
+      <p>双重标准，换谁谁开心？</p>
+<div class="comment-tools">
+<div class="vote" id="vote-200588"><span id="acv_stat_200588"></span><a class="ilike_icon"  id="vote4-200588" href="javascript:acv_vote(200588,1);">亮了</a>(<span id="cos_support-200588">0</span>)</div>
+<div class="dropup"><a class="dropdown-toggle btn-report" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="display:none;"> 举报</a>
+<ul class="dropdown-menu" style="display:none;bottom:auto;">
+<li><a data-id="200588" class="click_report" href="javascript:;">广告等垃圾信息</a></li>
+<li><a data-id="200588" class="click_report" href="javascript:;">不友善内容</a></li>
+<li><a data-id="200588" class="click_report" href="javascript:;">违反法律法规的内容</a></li>
+<li><a data-id="200588" class="click_report" href="javascript:;">不宜公开讨论的政治内容</a></li>
+<li><a data-id="200588" class="click_report" href="javascript:;">其他</a></li>
+</ul></div>
+</div>
+	</div></div>
+</li><!-- #comment-## -->
+<li class="comment even thread-odd thread-alt depth-1" id="li-comment-200589">
+    <div id="comment-200589">
+        <div class="photo">     <img src="http://image.3001.net/images/headimg/pic5.png">     </div>
+    <div class="tit"> 
+	    <span class="name"> 路过 </span>
+        		<span class="explain">  </span>
+		<span class="time">&nbsp;2016-11-04</span>
+		<span class="time"> </span>
+        <span class="useragent_output_custom"></span>
+        <span class="useragent_output_custom"></span> 
+		<span class="reply">
+		        <!-- 正常情况 -->
+           <a onclick="return addComment.moveForm( 'comment-200589','200589', 'respond','118699' ) " href="?replytocom=200589#respond" class="comment-reply-link" rel="nofollow">回复</a>
+        	    </span>
+		<span class="floor">6楼</span>
+	</div>
+	    <div class="txt">
+	  <p class="useragent_output_custom"></p>
+      <p>好牛牪(yàn)犇(bēn),这条要火炎焱(yàn )燚(yì)了。这真是一方水沝(zhu)淼(miǎo)土圭垚(yáo)养一方人从众啊！</p>
+<div class="comment-tools">
+<div class="vote" id="vote-200589"><span id="acv_stat_200589"></span><a class="ilike_icon"  id="vote4-200589" href="javascript:acv_vote(200589,1);">亮了</a>(<span id="cos_support-200589">17</span>)</div>
+<div class="dropup"><a class="dropdown-toggle btn-report" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="display:none;"> 举报</a>
+<ul class="dropdown-menu" style="display:none;bottom:auto;">
+<li><a data-id="200589" class="click_report" href="javascript:;">广告等垃圾信息</a></li>
+<li><a data-id="200589" class="click_report" href="javascript:;">不友善内容</a></li>
+<li><a data-id="200589" class="click_report" href="javascript:;">违反法律法规的内容</a></li>
+<li><a data-id="200589" class="click_report" href="javascript:;">不宜公开讨论的政治内容</a></li>
+<li><a data-id="200589" class="click_report" href="javascript:;">其他</a></li>
+</ul></div>
+</div>
+	</div></div>
+</li><!-- #comment-## -->
+<li class="comment odd alt thread-even depth-1" id="li-comment-200603">
+    <div id="comment-200603">
+        <div class="photo">     <img src="http://image.3001.net/images/headimg/pic4.png">     </div>
+    <div class="tit"> 
+	    <span class="name"> 涛哥的学妹 </span>
+        		<span class="explain">  </span>
+		<span class="time">&nbsp;2016-11-04</span>
+		<span class="time"> </span>
+        <span class="useragent_output_custom"></span>
+        <span class="useragent_output_custom"></span> 
+		<span class="reply">
+		        <!-- 正常情况 -->
+           <a onclick="return addComment.moveForm( 'comment-200603','200603', 'respond','118699' ) " href="?replytocom=200603#respond" class="comment-reply-link" rel="nofollow">回复</a>
+        	    </span>
+		<span class="floor">7楼</span>
+	</div>
+	    <div class="txt">
+	  <p class="useragent_output_custom"></p>
+      <p>…自古套路得人心，还是沐浴在我涛哥的圣光下吧</p>
+<div class="comment-tools">
+<div class="vote" id="vote-200603"><span id="acv_stat_200603"></span><a class="ilike_icon"  id="vote4-200603" href="javascript:acv_vote(200603,1);">亮了</a>(<span id="cos_support-200603">3</span>)</div>
+<div class="dropup"><a class="dropdown-toggle btn-report" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="display:none;"> 举报</a>
+<ul class="dropdown-menu" style="display:none;bottom:auto;">
+<li><a data-id="200603" class="click_report" href="javascript:;">广告等垃圾信息</a></li>
+<li><a data-id="200603" class="click_report" href="javascript:;">不友善内容</a></li>
+<li><a data-id="200603" class="click_report" href="javascript:;">违反法律法规的内容</a></li>
+<li><a data-id="200603" class="click_report" href="javascript:;">不宜公开讨论的政治内容</a></li>
+<li><a data-id="200603" class="click_report" href="javascript:;">其他</a></li>
+</ul></div>
+</div>
+	</div></div>
+</li><!-- #comment-## -->
+<li class="comment byuser comment-author-58917 even thread-odd thread-alt depth-1" id="li-comment-200614">
+    <div id="comment-200614">
+        <div class="photo"> <a href="http://www.freebuf.com/author/自律">
+    <img src="http://www.freebuf.com/buf/plugins/wp-user-avatar/images/wp-user-avatar-96x96.png"></a>
+     </div>
+    <div class="tit"> 
+	    <span class="name"> <a href="http://www.freebuf.com/author/自律" target="_blank">自律&nbsp;</a>  </span>
+        		
+		<span class="icon-f"> </span>
+		<span class="rank">(4级)</span>
+				<span class="explain">  </span>
+		<span class="time">&nbsp;2016-11-04</span>
+		<span class="time"> </span>
+        <span class="useragent_output_custom"></span>
+        <span class="useragent_output_custom"></span> 
+		<span class="reply">
+		        <!-- 正常情况 -->
+           <a onclick="return addComment.moveForm( 'comment-200614','200614', 'respond','118699' ) " href="?replytocom=200614#respond" class="comment-reply-link" rel="nofollow">回复</a>
+        	    </span>
+		<span class="floor">8楼</span>
+	</div>
+	    <div class="txt">
+	  <p class="useragent_output_custom"></p>
+      <p>mdzz 说了这么久，exp，poc呢？</p>
+<div class="comment-tools">
+<div class="vote" id="vote-200614"><span id="acv_stat_200614"></span><a class="ilike_icon"  id="vote4-200614" href="javascript:acv_vote(200614,1);">亮了</a>(<span id="cos_support-200614">1</span>)</div>
+<div class="dropup"><a class="dropdown-toggle btn-report" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="display:none;"> 举报</a>
+<ul class="dropdown-menu" style="display:none;bottom:auto;">
+<li><a data-id="200614" class="click_report" href="javascript:;">广告等垃圾信息</a></li>
+<li><a data-id="200614" class="click_report" href="javascript:;">不友善内容</a></li>
+<li><a data-id="200614" class="click_report" href="javascript:;">违反法律法规的内容</a></li>
+<li><a data-id="200614" class="click_report" href="javascript:;">不宜公开讨论的政治内容</a></li>
+<li><a data-id="200614" class="click_report" href="javascript:;">其他</a></li>
+</ul></div>
+</div>
+	</div></div>
+</li><!-- #comment-## -->
+      </ul>
+      <div class="commentnav page01" style="padding-top:10px; text-align: center;">
+               </div>
+	  
+<script src="http://www.freebuf.com/buf/themes/freebuf/js/ajaxfileupload.js" type="text/javascript"></script>
+<div id="respond" class="comment-box">
+<input type="file" id="uploadUnit" name="upfile" class="hidden" value="">
+    <form action="http://www.freebuf.com/wp-comments-post.php" method="post" id="commentform">
+        <div id="comment-author-info">
+	    <div class="login-other">
+		  <div class="login_button login_icon_sina" title="使用新浪微博登陆" onclick="login_button_click('sina')"></div>
+          <div class="login_button login_icon_qq" title="使用腾讯QQ登陆" onclick="login_button_click('qq')"></div></div>
+        <div class="login-input">
+	    <p><label for="author">昵称</label>
+		          <input type="text" name="author" id="author" value="" size="14" tabindex="1" aria-required='true' placeholder = "请输入昵称" required />
+        </p><span>必须</span><span>您当前尚未登录。<a  class="simplemodal-login" href="http://www.freebuf.com/wp-login.php?redirect_to=http%3A%2F%2Ffreebuf.com%2Fnews%2F118699.html" title="登陆">登陆？</a><a  href="http://www.freebuf.com/wp-login.php?action=register" target="_blank">注册</a></span></div>
+		<div class="login-input">
+		  <p><label for="email">邮箱</label><input type="text" name="email" id="email" value="" size="25" tabindex="2" aria-required='true' placeholder = "请输入邮箱地址" required /></p>
+		<span>必须（保密）</span>
+		</div>
+    </div>
+
+        <div id="test" class="post-area">
+      <div class="holiday"></div>
+	    <div class="comment-editor">
+			<a id="comment-smiley" href="javascript:;">表情</a><a href="javascript:;" id="imageThumb">插图</a>
+	    </div>
+        <div id="smileys" >
+           <a title="mrgreen" href="javascript:grin(':mrgreen:')"><img src="http://image.3001.net/images/index/smilies/icon_mrgreen.gif" /></a><a title="razz" href="javascript:grin(':razz:')"><img src="http://image.3001.net/images/index/smilies/icon_razz.gif" /></a><a title="sad" href="javascript:grin(':sad:')"><img src="http://image.3001.net/images/index/smilies/icon_sad.gif" /></a><a title="smile" href="javascript:grin(':smile:')"><img src="http://image.3001.net/images/index/smilies/icon_smile.gif" /></a><a title="oops" href="javascript:grin(':oops:')"><img src="http://image.3001.net/images/index/smilies/icon_redface.gif" /></a><a title="grin" href="javascript:grin(':grin:')"><img src="http://image.3001.net/images/index/smilies/icon_biggrin.gif" /></a><a title="eek" href="javascript:grin(':eek:')"><img src="http://image.3001.net/images/index/smilies/icon_surprised.gif" /></a><a title="???" href="javascript:grin(':???:')"><img src="http://image.3001.net/images/index/smilies/icon_confused.gif" /></a><a title="cool" href="javascript:grin(':cool:')"><img src="http://image.3001.net/images/index/smilies/icon_cool.gif" /></a><a title="lol" href="javascript:grin(':lol:')"><img src="http://image.3001.net/images/index/smilies/icon_lol.gif" /></a><a title="mad" href="javascript:grin(':mad:')"><img src="http://image.3001.net/images/index/smilies/icon_mad.gif" /></a><a title="twisted" href="javascript:grin(':twisted:')"><img src="http://image.3001.net/images/index/smilies/icon_twisted.gif" /></a><a title="roll" href="javascript:grin(':roll:')"><img src="http://image.3001.net/images/index/smilies/icon_rolleyes.gif" /></a><a title="wink" href="javascript:grin(':wink:')"><img src="http://image.3001.net/images/index/smilies/icon_wink.gif" /></a><a title="idea" href="javascript:grin(':idea:')"><img src="http://image.3001.net/images/index/smilies/icon_idea.gif" /></a><a title="arrow" href="javascript:grin(':arrow:')"><img src="http://image.3001.net/images/index/smilies/icon_arrow.gif" /></a><a title="neutral" href="javascript:grin(':neutral:')"><img src="http://image.3001.net/images/index/smilies/icon_neutral.gif" /></a><a title="cry" href="javascript:grin(':cry:')"><img src="http://image.3001.net/images/index/smilies/icon_cry.gif" /></a><a title="?" href="javascript:grin(':?:')"><img src="http://image.3001.net/images/index/smilies/icon_question.gif" /></a><a title="evil" href="javascript:grin(':evil:')"><img src="http://image.3001.net/images/index/smilies/icon_evil.gif" /></a><a title="shock" href="javascript:grin(':shock:')"><img src="http://image.3001.net/images/index/smilies/icon_eek.gif" /></a><a title="!" href="javascript:grin(':!:')"><img src="http://image.3001.net/images/index/smilies/icon_exclaim.gif" /></a>        </div>
+         <textarea name="comment" id="comment" cols="100%" rows="7" tabindex="4" style="overflow-x:hidden; overflow-y:hidden; border:0; width:100%;" onkeydown="if(event.ctrlKey&amp;&amp;event.keyCode==13){document.getElementById('submit').click();return false};"></textarea>
+    </div>
+      <div class="subcon but">
+      <input class="btn btn-success" type="submit" name="submit" id="submit" tabindex="5" value="提交评论(Ctrl+Enter)" />
+      <a rel="nofollow" class="btn btn-default" id="cancel-comment-reply-link" href="javascript:;">取消</a>
+      <div class="checkbox"><input type='hidden' name='comment_post_ID' value='118699' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+<label for="comment_mail_notify" class="comment_mail"><input type="checkbox" name="comment_mail_notify" id="comment_mail_notify" value="comment_mail_notify" checked="checked"/>有人回复时邮件通知我</label></div>
+      </div>
+    <input name="Token" id="Token" type="hidden" value="wg4wco" />
+  </form>
+  </div>
+</div>	  
+<div class="commentshow">
+<div class="comments-loading">Loading...</div>
+</div>
+<script language="javascript">
+jQuery(document).ready(function($){ //Begin jQuery
+    $('.reply').click(function() {
+    var atid = '"#' + $(this).parent().attr("id") + '"';
+    var atname = $(this).parent().find('span:first').text();
+    $("#comment").val("@" + atname + " ").focus();
+});
+    $('.cancel-comment-reply a').click(function() { //点击取消回复评论清空评论框的内容
+    $("#comment").val('');
+});
+}) 
+
+jQuery(document).ready(function($) {
+    $body = (window.opera) ? (document.compatMode == "CSS1Compat" ? $('html') : $('body')) : $('html,body');//commentnav ajax
+    $(document).on('click', '.commentnav a', function(e) {
+        e.preventDefault();
+        $.ajax({
+            type: "GET",
+            url: $(this).attr('href'),
+            beforeSend: function() {
+                $('.commentnav').remove();
+                $('.comment-list').remove();
+                $('.comments-loading').slideDown();
+            },
+            dataType: "html",
+            success: function(out) {
+                result = $(out).find('.comment-list');
+                nextlink = $(out).find('.commentnav');
+                $('.comments-loading').slideUp(550);
+                $('.comments-loading').after(result.fadeIn(800));
+                $(".comment-list img").each(function(){
+                  var url = $(this).attr("data-original");
+                  $(this).attr("src",url);
+                })
+            }
+        });
+    });    
+});
+</script>    </div>
+        <div class="col-md-3 visible-md-block visible-lg-block">
+      <div class="panel panel-default">
+        <div class="author-wrap">
+          <div class="author-header"><img src="http://image.3001.net/2016/09/92ed13fab8dcc3da1e87a4beaa0d87d1.jpeg" width="100" height="80" alt="kuma" class="avatar avatar-100 wp-user-avatar wp-user-avatar-100 photo" /></div>
+          <p class="name"><a href="http://www.freebuf.com/author/kuma" title="由 kuma 发布" rel="author">kuma</a><span></span></p>
+          <p class="signature">Minami shimawa atakai. Paina-puru-puru, Atama boka boka, Aho baakaaaaaaa!</p>
+          <p class="art-com"><span class="aut-article"><a href="/author/kuma" target="_blank">9篇文章</a></span><span class="aut-comment"><a href="/author/kuma?comment=1" target="_blank">1条评论</a></span></p>
+        </div>
+      </div>
+	  <script type="text/javascript">
+	          var dispatch = function() {
+              q = document.getElementById("q");
+              if (q.value != "") {
+                  window.open('http://www.freebuf.com/?s=' + q.value, "_blank");
+                     return false;
+                   } else {
+                       return false;
+                       }
+             }
+	  </script>
+      <div class="form-group has-active search-col search-in">
+        <form id="hpsform-new" class="navbar-search navbar-form" onsubmit="return dispatch()">
+          <div class="form-group">
+            <input id="q" class="input form-control" type="text" placeholder="关键字查找" autocomplete="off" title="关键字查找" name="q">
+            <button class="submit" onclick="INTEL_TYPE_AHEAD.onSubmitHps(' 关键字查找', '/content/www/cn/zh', 'zh_CN')" value="Search" type="submit"></button>
+          </div>
+        </form>
+      </div>
+      <div class="ad-right" style="margin-bottom:24px;">
+        <a href="http://www.symantec.com/zh/cn/ssl-certificates/?sl=MSYMW000000418515&om_ext_cid=ws_ad_ChinaFreebuf" target="_blank"><img src="http://image.3001.net/images/20161031/14778993516986.jpg"></a>
+      </div>
+   
+      <div class="panel panel-default">
+        <div class="read visible-md-block visible-lg-block">
+          <div class="main-tit02">
+            <h3>相关阅读</h3>
+          </div>		
+          <ul>
+  <li><a href="http://www.freebuf.com/articles/system/93484.html" target="_blank">Windows提权姿势之Hot Potato</a></li>
+  
+  <li><a href="http://www.freebuf.com/articles/system/75471.html" target="_blank">病毒是如何将文件藏进注册表的</a></li>
+  
+  <li><a href="http://www.freebuf.com/vuls/90840.html" target="_blank">JAVA序列化和反序列化，以及漏洞补救</a></li>
+  
+  <li><a href="http://www.freebuf.com/news/101975.html" target="_blank">苹果不再为Windows版的QuickTime提供安全更新</a></li>
+  
+  <li><a href="http://www.freebuf.com/articles/network/100788.html" target="_blank">渗透测试中上传文件到目标系统的四种姿势</a></li>
+  </ul>        </div>
+      </div>
+      <!--<div class="ad-wrap"><a href="http://www.ijiami.cn/?freebuf.com" target="_blank"><img width="100%" src="http://image.3001.net/images/20141201/14174039186901.jpg"></a></div>-->
+      <div class="panel panel-default rec-spe">
+        <div class="main-tit03 colour-blue">
+          <h3>特别推荐</h3>
+        </div>
+      <div class="rec-img"><a href="http://fit.freebuf.com" target="_blank"><img src="http://image.3001.net/2016/10/31a4a5ab5b274a07a89356c160263fea-220x150.jpeg" width="220"></a></div>
+           
+      </div>
+	  <div id="mar-right">
+      <!--<div class="read visible-lg-block">
+        <div class="main-tit04">
+          <h3>商城新品</h3>
+        </div>
+        <div id="slider" class="nivoSlider">  </div>
+      </div>-->
+      <div class="panel panel-default code"> <img src="http://image.3001.net/images/new/code.jpg" width="192" height="192">
+        <p>关注我们  分享每日精选文章</p>
+      </div>
+	  </div>
+    </div>
+  </div>
+  <div class="row marvellous visible-lg-block">
+    <h3>不容错过</h3>
+    <ul>
+      <li><a href="http://www.freebuf.com/articles/web/110307.html" rel="bookmark" title="企业自研扫描器之路：信息收集模块">企业自研扫描器之路：信息收集模块</a>
+        <p>		  <span class="name"><a href="http://www.freebuf.com/author/wadcl" title="由 wadcl 发布" rel="author">wadcl</a></span>
+		  		<span class="time">2016-08-02</span></p>
+      </li>
+      <li><a href="http://www.freebuf.com/vuls/78945.html" rel="bookmark" title="涅槃团队：Xcode幽灵病毒存在恶意下发木马行为">涅槃团队：Xcode幽灵病毒存在恶意下发木马行为</a>
+        <p>		  <span class="name"><a href="http://www.freebuf.com/author/360nirvanteam" title="由 360NirvanTeam 发布" rel="author">360NirvanTeam</a></span>
+		  		<span class="time">2015-09-19</span></p>
+      </li>
+      <li><a href="http://www.freebuf.com/news/66611.html" rel="bookmark" title="不交赎金就把你上黄网的事儿公之于众：安卓手机上的勒索软件Koler">不交赎金就把你上黄网的事儿公之于众：安卓手机上的勒索软件Koler</a>
+        <p>		  <span class="name"><a href="http://www.freebuf.com/author/jackfree" title="由 JackFree 发布" rel="author">JackFree</a></span>
+		  		<span class="time">2015-05-07</span></p>
+      </li>
+      <li><a href="http://www.freebuf.com/news/68558.html" rel="bookmark" title="【更新：目前已恢复】快讯：携程全线瘫痪，传言代码被恶意删除">【更新：目前已恢复】快讯：携程全线瘫痪，传言代码被恶意删除</a>
+        <p>		  <span class="name"><a href="http://www.freebuf.com/author/fber" title="由 fber 发布" rel="author">fber</a></span>
+		  		<span class="time">2015-05-28</span></p>
+      </li>
+    </ul>
+  </div>
+</div>
+<script type="text/javascript">
+  $(window).load(function() {
+    $('#slider').nivoSlider();
+  });
+  $('#contenttxt img').removeAttr('height');
+  $('#contenttxt img').wrap(function(){
+    if(!$(this).parent().attr('href')){
+      var imgurl = $(this).attr('data-original');
+      if(imgurl.substr(-6)=='!small'){
+        imgurl = imgurl.substring(0,imgurl.length-6);
+      }
+      return '<a href="' + imgurl + '" class="highslide-image" onclick="return hs.expand(this);" target="_blank"></a>';
+    }
+  })
+</script>
+<script src="http://www.freebuf.com/buf/themes/freebuf/js/comments-ajax.js" type="text/javascript"></script>
+<script type="text/javascript" src="http://static.3001.net/js/focus/jquery.nivo.slider.pack.js"></script>
+<!----------footer---------->
+<div class="footer">
+  <div class="container">
+    <div class="footer-list col-sm-2 col-md-2">
+      <h3>FREEBUF</h3>
+      <ul>
+        <li><a href="http://www.freebuf.com/dis">免责声明</a></li>
+        <li><a href="http://www.freebuf.com/news/others/864.html">关于我们</a></li>
+        <li><a href="http://www.freebuf.com/jobs/40386.html">加入我们</a></li>
+        <li><a href="http://www.freebuf.com/donate">捐助我们</a></li>
+      </ul>
+    </div>
+    <div class="footer-list col-sm-2 col-md-2">
+      <h3>广告及服务</h3>
+      <ul>
+        <li><a target="_blank" href="mailto:root@freebuf.com">寻求报道</a></li>
+        <li><a href="http://www.freebuf.com/advertise">广告合作</a></li>
+        <li><a target="_blank" href="mailto:help@freebuf.com">联系我们</a></li>
+        <li><a href="http://www.freebuf.com/friends">友情链接</a></li>
+      </ul>
+    </div>
+    <div class="footer-list col-sm-2 col-md-2">
+      <h3>关注我们</h3>
+      <ul>
+        <li><div class="weixin-pannel weixin"><a class="qr" href="javascript:viod(0);"><span class="g-icon-qr1">官方微信</span><i></i></a></div></li>
+        <li><a rel="nofollow" target="_blank" href="http://weibo.com/freebuf">新浪微博</a></li>
+        <li><a rel="nofollow" target="_blank" href="http://t.qq.com/freebuf">腾讯微博</a></li>
+        <li><a rel="nofollow" target="_blank" href="http://twitter.com/freebuf">Twitter</a></li>
+      </ul>
+    </div>
+    <div class="footer-list col-sm-2 col-md-2">
+      <h3>赞助商</h3>
+      <ul>
+        <li style="padding:6px 0 10px;"><a rel="nofollow" target="_blank" href="http://www.aliyun.com/?freebuf"><img src="http://image.3001.net/images/ad/ali.png"></a></li>
+        <li><a rel="nofollow" target="_blank" href="http://www.upyun.com/?freebuf"><img src="http://image.3001.net/images/ad/upyun.png"></a></li>
+        <li style="padding:6px 0 10px;"><a rel="nofollow" target="_blank" href="https://www.trustasia.com/?freebuf"><img src="http://image.3001.net/images/ad/ad-yzcx.png"></a></li>
+      </ul>
+    </div>
+    <div class="footer-list col-sm-2 col-md-2">
+      <ul>
+      </ul>
+    </div>
+    <div class="footer-logo col-sm-2 col-md-2 pull-right"><img src="http://image.3001.net/images/index/freebufrobot_shendanjie.png" ></div>
+  </div>
+  <div class="copyright"><div class="container"><p>Copyright &copy; 2013 WWW.FREEBUF.COM All Rights Reserved <a rel="nofollow" target="_blank" href="http://www.miitbeian.gov.cn">沪ICP备13033796号</a></p><span><a rel="nofollow" target="_blank" href="http://click.aliyun.com/m/1336/?freebuf"><img src="http://image.3001.net/images/new/icon-aly.png"></a></span></div></div>
+</div>
+<div class="bottom_tools"><a id="scrollUp" href="javascript:;" title="飞回顶部"></a></div>
+<!----------footer end----------> 
+<script src="http://static.3001.net/js/new/backtop.js"></script>
+<script type="text/javascript">
+jQuery(function(){	
+	jQuery('.tabPanes ul li').click(function(){
+		jQuery(this).addClass('hit').siblings().removeClass('hit');
+		jQuery('.panesl>div:eq('+jQuery(this).index()+')').show().siblings().hide();	
+	})
+	jQuery('.vulbox-nav').click(function(e) { 
+        e.stopPropagation(); 
+    });  
+})
+</script>
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fcc53db168808048541c6735ce30421f5' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<img alt='css.php' src="http://www.freebuf.com/buf/plugins/cc/css.php?k=3cb185a485c81b23211eb80b75a406fd&amp;o=i&amp;t=1235179521" width='1' height='1' /><script type="text/javascript">
+jQuery(function() {
+    jQuery(".simditor pre").each(function(i, block){
+        hljs.highlightBlock(block);    
+    });
+    hljs.initHighlightingOnLoad();
+});
+</script>
+<script>
+/* <![CDATA[ */
+var rcGlobal = {
+	serverUrl		:'http://www.freebuf.com',
+	infoTemp		:'%REVIEWER% on %POST%',
+	loadingText		:'Loading',
+	noCommentsText	:'No comments',
+	newestText		:'&laquo; 最新',
+	newerText		:'&laquo; 新一点',
+	olderText		:'旧一点 &raquo;',
+	showContent		:'1',
+	external		:'1',
+	avatarSize		:'32',
+	avatarPosition	:'left',
+	anonymous		:'Anonymous'
+};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://static.3001.net/js/recentcomments/wp-recentcomments-jquery.js?ver=2.2.3'></script>
+</body>
+</html>
+
+<!-- Dynamic page generated in 0.893 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2016-11-06 12:00:44 -->
+
+<!-- Super Cache dynamic page detected but late init not set. See the readme.txt for further details. -->
+<!-- Dynamic Super Cache -->
