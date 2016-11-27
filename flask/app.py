@@ -52,7 +52,7 @@ def ckxregister():
     loginlist= db[MONGOTABLE]
     account = request.form['account']
     pw=request.form['passwd']
-    checksentence={"account":account,"pw":pw}
+    checksentence={"account":account}
     checkname= None
     checkname = loginlist.find(checksentence)
     if checkname.count() == 0 :
@@ -590,5 +590,5 @@ def deleteaccount(objid):
 app.wsgi_app = ProxyFix(app.wsgi_app)
 
 if __name__ == "__main__":
-	#app.run(host='0.0.0.0',port='80')
-    app.run(debug=True)
+	app.run(host='0.0.0.0',port='80')
+    #app.run(debug=True)
