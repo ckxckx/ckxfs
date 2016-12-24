@@ -1,0 +1,23 @@
+{% extends "ckxbase.html" %}
+{% block title %}Index{% endblock %}
+{% block head %}
+    {{ super() }}
+{% endblock %}
+{% block content %}
+
+   <h2>你的关注点是————</h2>
+    <p class="important">
+
+        <a type="button" class="btn btn-lg btn-warning" href="/relation_uploader_1">上传者统计</a>
+        <a type="button" class="btn btn-lg btn-primary" href="/relation_leixing_1">类型分布</a>
+        <a type="button" class="btn btn-lg btn-success" href="/relation_urls_1">参考引用指数</a>
+        <a type="button" class="btn btn-lg btn-info" href="/date_relate">时间以及类型相关</a>
+{#        <button type="button" class="btn btn-lg btn-warning">Warning</button>#}
+{#        <button type="button" class="btn btn-lg btn-danger">Danger</button>#}
+        <a type="button" class="btn btn-lg btn-link">后续开发中...</a>
+
+    </p>
+{% endblock %}
+{% block mysidebar %}
+    {{ super() }}
+{% endblock %}

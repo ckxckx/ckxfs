@@ -1,0 +1,81 @@
+{% extends "ckxbase.html" %}
+{% block title %}Index{% endblock %}
+
+{% block head %}
+    {{ super() }}
+      <script src="static/js/jquery-3.0.0.js"></script>
+
+{% endblock %}
+{% block content %}
+<h3><strong>类型中心</strong></h3>
+{#    <h3>类型中心</h3>#}
+
+
+    <h3><strong><i>类型标签</i>：</strong></h3>
+       <ul class="nav nav-pills" role="tablist">
+    {% for row in page["row"] %}
+
+        <li role="presentation" class="active" id="hhh"><a myat="{{ row['leixing'] }}" class="hh1"> {{ row["leixing"] }}
+            <span class="badge">{{ row["cishu"] }}</span></a></li>
+
+
+{##}
+    {% endfor %}
+
+
+
+
+<button id="hide" type="button" class="btn btn-lg btn-danger">全部隐藏</button>
+
+<script type="text/javascript">
+$(document).ready(function(){
+  $(".hh1").click(function(){
+      myname="#"+$(this).attr("myat");
+{#      alert(myname);#}
+      $(myname).show();
+
+  });
+  $("#hide").click(function(){
+  $(".caozuo").hide();
+  });
+});
+</script>
+
+
+
+{% endblock %}
+
+{% block else %}
+
+    {% for row in page['row']  %}
+
+    <div class="caozuo" hidden="true" id="{{ row['leixing'] }}">
+    <div class="jumbotron"   >
+
+
+            <i>类型：{{ row['leixing'] }}</i>
+       <hr>
+     <h3>文章：</h3>
+       {% for foo in row['wenzhang'] %}
+       <li>{{ foo }}</li>
+
+       {% endfor %}
+        <hr>
+    <h3>擅长黑客：</h3>
+    {% for foo in row['uploaders'] %}
+       <li>{{ foo }}</li>
+
+       {% endfor %}
+
+</div>
+               </div>
+
+    {% endfor %}
+
+{% endblock %}
+
+
+
+{% block mysidebar %}
+    {{ super() }}
+{% endblock %}

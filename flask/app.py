@@ -1,8 +1,11 @@
  # -*- coding:utf-8 -*-
 from flask import *
-from flask_bootstrap import Bootstrap
-from flask_nav import Nav
-from flask_nav.elements import *
+# import json
+from bson import json_util as jsonb
+# from flask_bootstrap import Bootstrap
+from operator import itemgetter, attrgetter
+# from flask_nav import Nav
+# from flask_nav.elements import *
 from flask import request,session
 import pymongo
 import math
@@ -87,13 +90,15 @@ def mydrops():
 @app.route("/writedrops", methods=['GET','POST'])
 def writedrops():
     if 'username' in session:
-        client = pymongo.MongoClient(connection_string)
-        db = client[MONGODB_DB]
-        loginlist= db[MONGODB_COLLECTION_DROPS]
+        client = pymongo.MongoClient(connection_string)  #mongodb连接
+        db = client[MONGODB_DB]  #选择mongodb数据库
+        loginlist= db[MONGODB_COLLECTION_DROPS]   #选择需要的集合
         mytitle = request.form['title']
         mycontent=request.form['content']
         mytime=datetime.now()
-        checksentence={"datetime":mytime,"title":mytitle,"html":mycontent,"author":escape(session['username']),"category":"原创笔记"}
+        checksentence={"datetime":mytime,"title":mytitle,\
+                       "html":mycontent,"author":escape(session['username']),\
+                       "category":"原创笔记"}   #查找集合中的某一item
         checkname= None
         checkname = loginlist.find(checksentence)
         if checkname.count() == 0 :
@@ -572,6 +577,39 @@ def deleteaccount(objid):
 
 
 
+#########################advanced hacking##########33
+
+@app.route('/relation_1',methods=['get','post'])
+def relation_1():
+    if 'username' in session:
+        page = int(request.args.get('page', 1))
+        page_info = search_all_mongodb(page,0)
+
+        return render_template('relation_1.html', account=escape(session['username']))
+
+    else:
+        return u"尚未登入"
+
+
+
+#########################advanced hacking##########33
+
+@app.route('/relation_uploader_1',methods=['get','post'])
+def relation_uploader_1():
+    if 'username' in session:
+        client = pymongo.MongoClient(connection_string)
+        db = client['wooyun']
+        cl=db["uploader_aim"]
+        number=cl.count()
+        kkk=cl.find().sort('renqi', pymongo.DESCENDING)
+        page_info = {'total_rows': number, 'rows':[]}
+        for kk in kkk:
+            print kk
+            page_info['rows'].append(kk)
+        return render_template('hacklist.html', page_info=page_info,account=escape(session['username']))
+
+    else:
+        return u"尚未登入"
 
 
 
@@ -579,9 +617,145 @@ def deleteaccount(objid):
 
 
 
+@app.route('/upinfo/<objid>')
+def getmyuploader(objid):
+    if 'username' in session:
+        client = pymongo.MongoClient(connection_string)
+        db = client[app.config['MONGODB_DB']]
+        collection = db['uploader_aim']
+        # checkid={"_id":objid}
+        checkid={'_id':ObjectId(objid)}
+        results=collection.find_one(checkid)
+
+        return render_template('updangan.html',title=u'档案馆', page=results,account=escape(session['username']))
+
+
+@app.route('/relation_leixing_1')
+def getmyleixing():
+    if 'username' in session:
+        client = pymongo.MongoClient(connection_string)
+        db = client[app.config['MONGODB_DB']]
+        collection = db['relationships']
+        cl2=db['chulilist']
+        c1=cl2.find_one()['leixing']
+        cl3=db['leixing_aim']
+        page={"row":[]}
+        for key in c1:
+
+        # checkid={"_id":objid}
+            checkid={'leixing':key}
+            results=collection.count(checkid)
+            cc=cl3.find_one({"leixing":key})
+            page['row'].append({"leixing":key,"cishu":results,"wenzhang":cc['titles']
+                                ,"uploaders":cc["uploaders"]
+                                })
+
+        # return str(page['row'])
+
+        return render_template('leixing.html',title=u'档案馆', page=page,account=escape(session['username']))
 
 
 
+    return u"尚未登入"
+
+
+
+
+
+
+@app.route('/relation_urls_1')
+def getmyurls():
+    if 'username' in session:
+        client = pymongo.MongoClient(connection_string)
+        db = client['wooyun']
+        weichuli = db['relationships']
+        chulilist=db['chulilist']
+
+        mydict={}
+
+        domain_array=[]
+        hrefs_s=weichuli.find()
+        for hrefs in hrefs_s:
+            for href in hrefs['hrefs']:
+                # print href
+                urlsep = href.split('//')[1].split('/')[0].split('.')
+                if len(urlsep)==2:
+                    domain=urlsep[0]+'.'+urlsep[1]
+                elif len(urlsep)==1:
+                    pass
+                else:
+                    domain=str(urlsep[1])+'.'+str(urlsep[2])
+                    # print str(domain)
+                domain_array.append(domain)
+
+        num=[]
+        domain_array_set=set(domain_array)
+        for d in domain_array_set:
+            number=domain_array.count(d)
+            num.append([str(d),number])
+
+        b=sorted(num,key=itemgetter(1,1),reverse=True)[0:9]
+
+        # b=db["url_aim"].find_one()["shuzu"][0:1]
+
+        return render_template('getmyurls.html',title=u'档案馆', name=b,account=escape(session['username']))
+    return u"尚未登入"
+
+
+@app.route('/date_relate')
+def getmydate():
+    if 'username' in session:
+        page=[]
+        client = pymongo.MongoClient(connection_string)
+        db = client['wooyun']
+        weichuli = db['relationships']
+        chulilist=db['chulilist']
+        cl=db['riqi_leixing_guanlian']
+        riqishu=chulilist.find_one()['riqi']
+        page=[]
+        riqishu=sorted(riqishu)
+        for riqi in riqishu:
+            zongcishu=cl.count({"date":riqi})
+            leis=[]
+
+            for lx in cl.find({"date":riqi}):
+                leis.append(lx['leixing'])
+
+            a = []
+            for i in set(leis):
+                if leis.count(i)>0:
+                    print i
+                    a.append([i,leis.count(i)])
+
+            page.append([riqi,zongcishu,a])
+
+
+        xzhou=[]
+        yzhou=[]
+        rongqi=[]
+        for ite in page:
+            xzhou.append(str(ite[0]))
+            yzhou.append(ite[1])
+            # rongqi.append()
+        info=[xzhou,yzhou]
+
+        rongqi3=[]
+        leixingshu=chulilist.find_one()['leixing']
+        for leixing in leixingshu:
+            rongqi1=[]
+            rongqi2=[]
+            for riqi in riqishu:
+                num=cl.count({"leixing":leixing,"date":riqi})
+                rongqi1.append(num)
+                rongqi2.append(str(riqi))
+            rongqi3.append([rongqi1])
+
+        # print rongqi3
+
+
+        return render_template("date_relate.html",info=info,rongqi3=rongqi3,account=escape(session['username']))
+    else:
+        return u"未授权"
 
 
 
@@ -590,5 +764,5 @@ def deleteaccount(objid):
 app.wsgi_app = ProxyFix(app.wsgi_app)
 
 if __name__ == "__main__":
-	app.run(host='0.0.0.0',port='80')
-    #app.run(debug=True)
+	# app.run(host='0.0.0.0',port='80')
+    app.run(debug=True)

@@ -23,6 +23,7 @@ STARTS_URL='http://www.freebuf.com/vuls/'
 PAGE="vuls/page/%d"       ##抽取目录
 XPATH1='//dl/dt/a/@href'  ##抽取目录中的url
 XPATH2='//title/text()'   ##抽取标题
+XPATH3='//span[@class="name"]/a/text()'
 AUTHOR='EVIL_CALVIN'  ##操作人名称
 SAVEPIC=False   ##判断是否存储图片
 SPIDERNAME="freebuf"  ###爬虫名称
@@ -77,6 +78,7 @@ class WooyunSpider(scrapy.Spider):
         #####暂且id按照简单的1234......
         self.total_count_bugs=self.total_count_bugs+1
         item['wooyun_id']=str(self.total_count_bugs)
+        item['uploader'] = response.xpath(XPATH3).extract()[0].split("|")[0]
         item['author'] =AUTHOR  ####可有可无的传入参数点4
         item['html'] = response.body.decode('utf-8','ignore')
         item['datetime'] = datetime.now()

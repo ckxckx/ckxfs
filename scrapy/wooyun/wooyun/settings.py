@@ -33,6 +33,7 @@ MONGODB_SERVER = 'localhost'
 MONGODB_PORT = 27017
 MONGODB_DB = 'wooyun'
 MONGODB_COLLECTION = 'wooyun_list'
+MONGODB_my_collection='relationships'
 #image ignored downoading
 IMAGE_DOWLOAD_IGNORED = {
     'www.quip.com'

@@ -21,3 +21,4 @@ class WooyunItem(scrapy.Item):
     #
     image_urls = scrapy.Field()
     images = scrapy.Field()
+    uploader=scrapy.Field()

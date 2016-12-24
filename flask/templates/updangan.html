@@ -1,0 +1,38 @@
+{% extends "ckxbase.html" %}
+{% block title %}Index{% endblock %}
+{% block head %}
+    {{ super() }}
+{% endblock %}
+{% block content %}
+
+    <h1>欢迎来到档案馆！</h1>
+<h2><strong>贡献者ID：{{ page["uploader"] }}</strong></h2>
+    <h5>阅读人气指数：{{ page["renqi"] }}</h5>
+    <h3><strong>擅长领域：</strong></h3>
+    {% for row in page["leixing"] %}
+
+    <h4>{{ row }}</h4>
+
+    {% endfor %}
+
+        <h3><strong>曾经贡献文章：</strong></h3>
+    {% for row in page["titles"] %}
+
+    <h4>{{ row }}</h4>
+
+    {% endfor %}
+
+
+
+        <h3><strong>曾经引用链接：</strong></h3>
+    {% for row in page["hrefs"] %}
+
+    <h4>{{ row }}</h4>
+
+    {% endfor %}
+
+
+{% endblock %}
+{% block mysidebar %}
+    {{ super() }}
+{% endblock %}
