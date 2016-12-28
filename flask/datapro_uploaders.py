@@ -22,7 +22,7 @@ weichuli = db['relationships']
 chuliname=db['uploader_aim']
 
 
-ok=db['chulilist'].find_one({"_id" : ObjectId("585d36ec2514971ea8747224")})
+ok=db['chulilist'].find_one()
 for name in ok["uploaders"]:
 
 

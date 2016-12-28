@@ -1,5 +1,7 @@
  # -*- coding:utf-8 -*-
+import hashlib
 from flask import *
+
 # import json
 from bson import json_util as jsonb
 # from flask_bootstrap import Bootstrap
@@ -50,11 +52,19 @@ def signup():
     return render_template('signup.html',title=u'三叶虫注册')
 @app.route("/ckxregister",methods=['GET','POST'])
 def ckxregister():
+    m1=hashlib.md5()
+
+
+
+
     client = pymongo.MongoClient(connection_string)
     db = client[MONGODB_DB_ckx]
     loginlist= db[MONGOTABLE]
     account = request.form['account']
     pw=request.form['passwd']
+    m1.update(pw)
+    mypwd=m1.hexdigest()
+
     checksentence={"account":account}
     checkname= None
     checkname = loginlist.find(checksentence)
@@ -62,7 +72,7 @@ def ckxregister():
         checksuccess = 'success'
         post_content={
             "account":account,
-            "pw":pw,
+            "pw":mypwd,
         }
         db.loginlist.insert_one(post_content)
 
@@ -163,22 +173,24 @@ def logerr():
 
 @app.route("/ckxlogin",methods=['GET','POST'])
 def MockController():
-	client = pymongo.MongoClient(connection_string)
-	db = client[MONGODB_DB_ckx]
-	loginlist= db[MONGOTABLE]
-	account = request.form['account']
-	pw=request.form['pw']
-	checksentence={"account":account,"pw":pw}
-	checkname= None
-	checkname = loginlist.find(checksentence)
-	if checkname.count() == 0 :
-		checksuccess = 'fail'
-		return redirect('/logerr')
-	else:
-		checksuccess= "success"
-		session['username'] = request.form['account']
-		return redirect('/')
-
+    mmm=hashlib.md5()
+    client = pymongo.MongoClient(connection_string)
+    db = client[MONGODB_DB_ckx]
+    loginlist= db[MONGOTABLE]
+    account = request.form['account']
+    pw=request.form['pw']
+    mmm.update(pw)
+    mypwd=mmm.hexdigest()
+    checksentence={"account":account,"pw":mypwd}
+    checkname= None
+    checkname = loginlist.find(checksentence)
+    if checkname.count() == 0 :
+    	checksuccess = 'fail'
+    	return redirect('/logerr')
+    else:
+    	checksuccess= "success"
+    	session['username'] = request.form['account']
+    	return redirect('/')
 	# return render_template('testf.html',account=account, pw=checkname.count())
 
 
@@ -682,21 +694,36 @@ def getmyurls():
                 if len(urlsep)==2:
                     domain=urlsep[0]+'.'+urlsep[1]
                 elif len(urlsep)==1:
-                    pass
+                    domain='wrong'
                 else:
                     domain=str(urlsep[1])+'.'+str(urlsep[2])
                     # print str(domain)
                 domain_array.append(domain)
 
         num=[]
-        domain_array_set=set(domain_array)
+
+        domain_array_set=[]
+        for id in domain_array:
+            if id not in domain_array_set:
+                domain_array_set.append(id)
+
+
+
+
         for d in domain_array_set:
-            number=domain_array.count(d)
-            num.append([str(d),number])
+            try:
+                d=str(d)
+                number=domain_array.count(d)
+                num.append([d,number])
+            except:
+                continue
+
+
+
 
         b=sorted(num,key=itemgetter(1,1),reverse=True)[0:9]
 
-        # b=db["url_aim"].find_one()["shuzu"][0:1]
+
 
         return render_template('getmyurls.html',title=u'档案馆', name=b,account=escape(session['username']))
     return u"尚未登入"
